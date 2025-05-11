@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          npx vite build
+          ./node_modules/.bin/vite build
           ls -la dist/
 
       - name: Deploy
