@@ -1,48 +1,48 @@
 <template>
   <div class="sql-cheatsheet">
-    <h1>SQL 語法速查表</h1>
+      <h1>SQL 語法速查表</h1>
     <div class="content">
-      <div class="category-list">
-        <button 
+        <div class="category-list">
+          <button 
           v-for="(category, index) in categories" 
-          :key="index"
-          class="category-btn"
+            :key="index"
+            class="category-btn"
           :class="{ active: selectedCategory === index }"
           @click="selectedCategory = index"
-        >
-          {{ category.title }}
-        </button>
-      </div>
-
-      <div v-if="selectedCategory !== null" class="examples-container">
-        <div class="examples-list">
-          <button 
-            v-for="(example, index) in categories[selectedCategory].examples" 
-            :key="index"
-            class="example-btn"
-            :class="{ active: selectedExample === index }"
-            @click="selectedExample = index"
           >
-            {{ example.label }}
+          {{ category.title }}
           </button>
         </div>
 
-        <div v-if="selectedExample !== null" class="example-detail">
-          <div class="example-header">
+      <div v-if="selectedCategory !== null" class="examples-container">
+            <div class="examples-list">
+              <button 
+            v-for="(example, index) in categories[selectedCategory].examples" 
+                :key="index"
+                class="example-btn"
+                :class="{ active: selectedExample === index }"
+                @click="selectedExample = index"
+              >
+                {{ example.label }}
+              </button>
+            </div>
+
+            <div v-if="selectedExample !== null" class="example-detail">
+              <div class="example-header">
             <h3>{{ categories[selectedCategory].examples[selectedExample].label }}</h3>
             <button class="copy-btn" @click="copyToClipboard(categories[selectedCategory].examples[selectedExample].code)">
-              複製代碼
-            </button>
-          </div>
+                  複製代碼
+                </button>
+              </div>
 
-          <div class="code-block">
+              <div class="code-block">
             <pre><code>{{ categories[selectedCategory].examples[selectedExample].code }}</code></pre>
-          </div>
+              </div>
 
-          <div class="example-note">
+              <div class="example-note">
             <span>{{ categories[selectedCategory].examples[selectedExample].note }}</span>
-          </div>
-        </div>
+              </div>
+            </div>
       </div>
     </div>
   </div>
@@ -56,9 +56,9 @@ export default {
       selectedCategory: null,
       selectedExample: null,
       categories: [
-        {
-          title: '基本查詢',
-          examples: [
+  {
+    title: '基本查詢',
+    examples: [
             { 
               label: '查詢單一表格資料',
               code: 'SELECT 欄位1, 欄位2 FROM 資料表;',
@@ -69,23 +69,23 @@ export default {
               code: 'SELECT * FROM 資料表;',
               note: '查詢所有直欄、所有橫列的資料'
             }
-          ]
-        },
-        {
-          title: '條件查詢',
-          examples: [
+    ]
+  },
+  {
+    title: '條件查詢',
+    examples: [
             {
               label: '基本條件查詢',
               code: 'SELECT 欄位1, 欄位2 FROM 資料表 WHERE 條件;',
               note: '查詢符合條件之橫列的資料'
-            },
-            {
+  },
+  {
               label: '模糊比對',
               code: "SELECT 欄位1, 欄位2 FROM 資料表 WHERE 欄位1 [NOT] LIKE '模式';",
               note: '使用模糊比對查詢資料'
-            }
+      }
           ]
-        }
+      }
       ]
     }
   },
@@ -98,8 +98,8 @@ export default {
         console.error('複製失敗:', err)
       }
     }
+    }
   }
-}
 </script>
 
 <style>
@@ -211,9 +211,9 @@ h1 {
 
 .copy-btn:hover {
   background: #0056b3;
-}
+  }
 
-.code-block {
+  .code-block {
   background: #f8f9fa;
   border-radius: 6px;
   padding: 15px;
