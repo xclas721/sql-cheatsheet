@@ -21,10 +21,11 @@ jobs:
         run: |
           npm install
           npm list
+          chmod +x node_modules/.bin/vite
 
       - name: Build
         run: |
-          ./node_modules/.bin/vite build
+          npm run build
           ls -la dist/
 
       - name: Deploy
