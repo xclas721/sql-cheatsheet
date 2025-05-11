@@ -24,7 +24,7 @@ jobs:
 
       - name: Build
         run: |
-          npm run build
+          npx vite build
           ls -la dist/
 
       - name: Deploy
